@@ -1,13 +1,21 @@
 import { ModeToggle } from '@/components/mode-toggle/mode-toggle'
 import React from 'react'
 
-const Aside = () => {
+const asideModules = ['Inicio', 'Favoritos', 'Configuración']
+
+export const Aside = () => {
     return (
-        <header className='w-32 h-14 px-3 bg-slate-400'>
-            <h3 className='scroll-m-20 text-2xl font-semibold tracking-tight'>ShadCN Todo APP</h3>
+        <aside className='w-80 h-screen p-2 flex flex-col bg-zinc-900'>
             <ModeToggle />
-        </header>
+
+            <div className='flex flex-col cursor-pointer'>
+                {asideModules.map((module, iModule) => (
+                    <span className='border-b border-b-orange-50 mb-3 first-of-type:mt-3' key={iModule}>
+                        {module}
+                    </span>
+                ))}
+            </div>
+
+        </aside>
     )
 }
-
-export default Aside
